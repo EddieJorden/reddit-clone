@@ -1,12 +1,12 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { debounce } from "lodash";
+import { updateUserInput } from './searchBarSlice';
+import { useDispatch } from "react-redux";
 
 const SearchBar = () => {
-    const [searchInput, setSearchInput] = useState('initial value');
-    console.log('searchInput', searchInput);
-
+    const dispatch = useDispatch();
     const handleChange = (event) => {
-        setSearchInput(event.target.value);
+        dispatch(updateUserInput(event.target.value));
     };
 
     return (
