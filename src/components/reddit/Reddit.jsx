@@ -15,7 +15,6 @@ const Reddit = () => {
         fetchApi();
     }, [dispatch]);
 
-
     return (
         <div>
             <></>

@@ -4,21 +4,20 @@ import Reddit from "./Reddit";
 import ChildObject from "./ChildObject";
 
 const RedditReturn = () => {
-    let returnedRedditArray = []
-    const returnedArray = useSelector(selectRedditReturn)
-    console.log('returnedArray', returnedArray)
+    let returnedRedditArray = [];
+    const returnedArray = useSelector(selectRedditReturn);
     const redditReturn = () => {
         if(!returnedArray) {
             return ;
         }
         for(let i = 2; i < returnedArray.length; i++) {
-              returnedRedditArray.push(returnedArray[i])
+              returnedRedditArray.push(returnedArray[i]);
         }
-        return returnedRedditArray
+        return returnedRedditArray;
     };
 
-    const arrayMinusFirstTwo = redditReturn()
-    console.log('arrayMinusFirstTwo', arrayMinusFirstTwo)
+    const arrayMinusFirstTwo = redditReturn();
+    console.log('arrayMinusFirstTwo', arrayMinusFirstTwo);
 
     const mappedReturn = () => {
         if(!arrayMinusFirstTwo) {
@@ -26,16 +25,16 @@ const RedditReturn = () => {
         } 
 
         return arrayMinusFirstTwo.map(each => {
-            let author = each.data.author
-            let url = each.data.url
-            let altTxt = each.data.title
+            let author = each.data.author;
+            let url = each.data.url;
+            let altTxt = each.data.title;
             return (
                 <div>
                     <ChildObject author={author} url={url} altTxt={altTxt}/>
                 </div>
             )
-        })
-    }
+        });
+    };
 
     return (
         <div>
