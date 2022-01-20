@@ -1,4 +1,4 @@
-const ChildObject = ({ author, url, altTxt }) => {
+const Tile = ({ author, url, altTxt }) => {
     return (
         <div>
             <div>author: {author}</div>
@@ -7,4 +7,4 @@ const ChildObject = ({ author, url, altTxt }) => {
     );
 };
 
-export default ChildObject;
+export default Tile;

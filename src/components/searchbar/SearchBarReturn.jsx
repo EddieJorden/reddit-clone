@@ -3,7 +3,6 @@ import { selectUserInput } from "./searchBarSlice";
 
 const SearchBarReturn = () => {
     const userInput = useSelector(selectUserInput);
-
     return (
         <div>
             <div>user input: </div>
