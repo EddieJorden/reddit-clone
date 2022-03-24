@@ -1,20 +1,24 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateRedditReturn } from "./RedditSlice";
+import { selectUserSearchTerm } from "./RedditSlice";
 
 const Reddit = () => {
     const dispatch = useDispatch();
+    const userSearchTerm = useSelector(selectUserSearchTerm)
+    
     useEffect(() => {
+        
         async function fetchApi () {
-            const subreddit = 'meme';
             const limit = 10;
-            const response = await fetch(`https://www.reddit.com/r/${subreddit}.json?limit=${limit}`, {'type' : 'no-cors'});
+            const apiToFetch = `https://www.reddit.com/r/${userSearchTerm}.json?limit=${limit}`
+            console.log('apiToFetch', apiToFetch)
+            const response = await fetch(apiToFetch, {'type' : 'no-cors'});
             const json = await response.json();
             dispatch(updateRedditReturn(json));
         };
         fetchApi();
-    }, [dispatch]);
-
+    }, [dispatch, userSearchTerm]);
 
     return (
         <div>

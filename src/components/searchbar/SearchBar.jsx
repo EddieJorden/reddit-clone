@@ -1,25 +1,28 @@
-// import { useState } from "react";
-import { debounce } from "lodash";
 import { updateUserInput } from './searchBarSlice';
 import { useDispatch, useSelector } from "react-redux";
-import { selectRedditReturn } from "../reddit/RedditSlice";
+import { updateSearchTerm } from "../reddit/RedditSlice";
+import { selectUserInput } from "./searchBarSlice";
 
 const SearchBar = () => {
-    const dispatch = useDispatch();
-    const redditReturnedFromClick = useSelector(selectRedditReturn)
-    const handleChange = (event) => {
-        dispatch(updateUserInput(event.target.value));
-    };
+    const dispatch = useDispatch()
+    const userInput = useSelector(selectUserInput)
 
-    const handleClick = () => {
-        console.log(redditReturnedFromClick)
+    const handleChange = (e) => {
+        dispatch(updateUserInput(e.target.value))
+    }
 
+    const handleSubmit = (e) => {
+        dispatch(updateSearchTerm(userInput));
+        // console.log('e.target.value', e.target.value);
+        e.preventDefault();
     }
 
     return (
         <div>
-            <input placeholder='search' type='text' onChange={debounce(handleChange, 1000)}/>
-            <button onClick={handleClick}>hit api</button>
+            <form onSubmit={handleSubmit}>
+                <input placeholder='search' type='text' onChange={handleChange}/>
+                <input type="submit" value="hit api" />
+            </form>
         </div>
     );
 };
