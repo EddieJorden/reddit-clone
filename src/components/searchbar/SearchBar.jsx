@@ -7,13 +7,9 @@ import React from 'react';
 const SearchBar = () => {
     const dispatch = useDispatch();
     const userInput = useSelector(selectUserInput);
-    const [value, setValue] = React.useState('');
 
     const handleChange = (e) => {
         dispatch(updateUserInput(e.target.value));
-        if(e.target.value === "") {
-            setValue(false);
-        } else setValue(true)
     };
 
     const handleSubmit = (e) => {
@@ -25,7 +21,7 @@ const SearchBar = () => {
         <div>
             <form onSubmit={handleSubmit}>
                 <input placeholder='search' type='text' onChange={handleChange}/>
-                <input type="submit" disabled={!value} value="search" />
+                <input type="submit" disabled={!userInput} value="search" />
             </form>
         </div>
     );
