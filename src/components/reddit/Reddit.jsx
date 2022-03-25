@@ -12,7 +12,6 @@ const Reddit = () => {
         async function fetchApi () {
             const limit = 10;
             const apiToFetch = `https://www.reddit.com/r/${userSearchTerm}.json?limit=${limit}`
-            console.log('apiToFetch', apiToFetch)
             const response = await fetch(apiToFetch, {'type' : 'no-cors'});
             const json = await response.json();
             dispatch(updateRedditReturn(json));

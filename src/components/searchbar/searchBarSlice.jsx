@@ -8,7 +8,6 @@ const searchBarReducer = createSlice({
   reducers: {
     updateUserInput(state, action) {
       state.userInput = action.payload;
-      console.log('userInput:', action.payload);
     }
   }
 });
