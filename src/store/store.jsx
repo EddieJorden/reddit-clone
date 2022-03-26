@@ -4,8 +4,8 @@ import redditSlice from '../components/reddit/RedditSlice';
 
 export const store = configureStore({
 
-  reducer: {
-    searchBar: searchBarReducer,
-    reddit: redditSlice
-  }
+	reducer: {
+		searchBar: searchBarReducer,
+		reddit: redditSlice
+	}
 });

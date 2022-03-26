@@ -1,20 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const redditSlice = createSlice({
-  name: 'redditSlice',
-  initialState: {
-    redditReturn: [],
-    userSearchTerm: "ferrari",
-    
-  },
-  reducers: {
-    updateRedditReturn(state, action) {
-        state.redditReturn = action.payload;
-    },
-    updateSearchTerm(state, action) {
-      state.userSearchTerm = action.payload;
-    }
-  }
+	name: 'redditSlice',
+	initialState: {
+		redditReturn: [],
+		userSearchTerm: 'ferrari',
+	},
+	reducers: {
+		updateRedditReturn(state, action) {
+			state.redditReturn = action.payload;
+		},
+		updateSearchTerm(state, action) {
+			state.userSearchTerm = action.payload;
+		}
+	}
 });
 
 export const selectRedditReturn = state => state.reddit.redditReturn;
