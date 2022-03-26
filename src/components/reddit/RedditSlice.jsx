@@ -10,11 +10,9 @@ const redditSlice = createSlice({
   reducers: {
     updateRedditReturn(state, action) {
         state.redditReturn = action.payload;
-        console.log('reddit response', action.payload);
     },
     updateSearchTerm(state, action) {
       state.userSearchTerm = action.payload;
-      console.log('searchTerm in updateSearchTerm reducer', action.payload);
     }
   }
 });
