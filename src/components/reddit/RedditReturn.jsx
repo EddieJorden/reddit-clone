@@ -1,9 +1,9 @@
-import { useSelector } from "react-redux";
-import { selectRedditReturn } from "./RedditSlice";
 import Reddit from "./Reddit";
+import ListItemComponent from "../listItemComponent/ListItemComponent";
+
 
 const RedditReturn = () => {
-    const redditReturn = useSelector(selectRedditReturn);
+
     return (
         <div>
             <div>
@@ -11,7 +11,7 @@ const RedditReturn = () => {
             </div>
             <div>
                 <div>reddit return: </div>
-                <div>{redditReturn.kind}</div>
+                <ListItemComponent />
             </div>
         </div>
     );
