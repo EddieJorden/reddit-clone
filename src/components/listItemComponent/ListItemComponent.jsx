@@ -8,8 +8,6 @@ const TileDiv = styled.div`
     height: 100px;
     background-color: white;
     margin: 10px;
-
-
 `;
 
 const ListItemComponent = () => {
@@ -31,14 +29,14 @@ const ListItemComponent = () => {
 							// ups,
 							title,
 							thumbnail,
-							// permalink 
+							// permalink
 						} = each.data;
 						const defaultThumb = 'gt86nurburgring.jpeg';
 						return (
 							<div key={index}>
 								<TileDiv>
 									<div style={{display: 'flex', color: 'black'}}>
-										<img src={thumbnail ? thumbnail : defaultThumb} alt={title} style={{maxHeight: '100px'}}/>
+										<img src={thumbnail || defaultThumb} alt={title} style={{maxHeight: '100px'}}/>
 										<div>
 											<div >{title}</div>
 										</div>
