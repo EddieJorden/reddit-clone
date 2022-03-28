@@ -8,34 +8,32 @@ const TileTitle = styled.div`
     color: orange;
 `;
 
-const IconDiv = styled.div`
-
-`;
-
-const CoinPrice = styled.div`
-
-`;
-
 const IconContainer = styled.div`
     display: flex;
     align-items: flex-end;
+    max-width: 100%
 `;
 
-const AwardsItemComponent = ({ iconUrlArray }) => {
-
-	if(iconUrlArray.length >= 1) {
+const AwardsItemComponent = ({ filteredIconUrlArray, coinPrice }) => {
+	if(filteredIconUrlArray?.length) {
 		return (
 			<IconContainer>
-				{iconUrlArray.map((url, i )=> {
+				{filteredIconUrlArray.map((url, i )=> {
 					return (
-						<IconDiv key={i}>
-							<img src={url}/>
-						</IconDiv>
+						<div key={i}>
+							<div>
+								<img src={url}/>
+							</div>
+							<div style={{fontSize: '12px'}}>
+								price {coinPrice}
+							</div>
+						</div>
 					);
 				})}
 			</IconContainer>
 		);
-	} else return <p>loading</p>;
+	}
+	return null;
 };
 
 export default AwardsItemComponent;

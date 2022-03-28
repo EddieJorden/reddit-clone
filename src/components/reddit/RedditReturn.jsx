@@ -1,7 +1,7 @@
 import React from 'react';
 import Reddit from './Reddit';
 import ListItemComponent from '../listItemComponent/ListItemComponent';
-
+import defaultThumbnail from '../listItemComponent/gt86nurburgring.jpg';
 
 const RedditReturn = () => {
 
@@ -12,7 +12,7 @@ const RedditReturn = () => {
 			</div>
 			<div>
 				<div>reddit return: </div>
-				<img src='/gt86nurburgring.jpg'/>
+				<img style={{maxHeight: '610px'}} src={defaultThumbnail}/>
 				<ListItemComponent />
 			</div>
 		</div>
