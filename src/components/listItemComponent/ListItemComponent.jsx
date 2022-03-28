@@ -37,7 +37,7 @@ const ContentDiv = styled.div`
 const TitleDivContainer = styled.div`
 	display: flex;
 
-	justify-content: flex-start;
+	justify-content: space-between;
 	max-width: 90%;
 	min-width: 90%;
 	font-size: 10px;
@@ -46,10 +46,7 @@ const TitleDivContainer = styled.div`
 const AuthorDivContainer = styled.div`
 	color: grey;
 	display: flex;
-	flex-direction: row;
 	justify-content: row-start;
-	align-items: top;
-	margin-top: 0px;
 	font-size: 12px;
 	max-width: 90%;
 `;
@@ -57,7 +54,7 @@ const AuthorDivContainer = styled.div`
 const Footer = styled.div`
 	display: flex;
 	flex-direction: row;
-	align-items: left;
+	align-items: center;
 	justify-content: space-around;
 	max-width: 90%;
 	min-width: 90%;
@@ -66,9 +63,16 @@ const Footer = styled.div`
 const Ups = styled.div`
 	display: flex;
 	flex-direction: column;
-	align-items: flex-end;
-	justify-content: flex-end;
+	align-items: center;
+`;
 
+const StyledTitle = styled.div`
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+	font-size: 18px;
+	font-weight: bold;
+	width: 600px;
 `;
 
 const ListItemComponent = () => {
@@ -82,29 +86,15 @@ const ListItemComponent = () => {
 				{
 					redditApiReturn.data.children.map((each, index) => {
 						const allAwardings = each.data?.all_awardings ?? [];
-						const coinPrice = allAwardings?.coin_price;
-						const iconUrlArray = allAwardings.map(awarding => awarding.resized_icons?.[0]?.url);
-						const filteredIconUrlArray = iconUrlArray.filter(item => item.startsWith('https://www.redditstatic.com'));
+						const iconUrlArray = allAwardings.map(awarding => ({url: awarding.resized_icons?.[0]?.url, coinPrice: awarding.coin_price}));
+						const iconsAndCoinPrice = iconUrlArray.filter(item => item?.url?.startsWith('https://www.redditstatic.com'));
 
 						const getDate = () => {
 							const date = new Date(each.data?.created_utc * 1000);
 							return date;
 						};
 
-						const getTitle = () => {
-							const title = each.data?.title;
-							const titleArray = title.split('');
-							let shortenedArray = [];
-							let shortenedTitle = '';
-
-							if(titleArray.length > 60){
-								for(let i = 0; i < 60; i ++) {
-									shortenedArray.push(titleArray[i]);
-								}
-								shortenedTitle = shortenedArray.toString().split(',');
-								return <div>{shortenedTitle}<span>...</span></div>;
-							} else return title;
-						};
+						const title = each.data?.title;
 
 						const { 
 							created,
@@ -115,7 +105,6 @@ const ListItemComponent = () => {
 						} = each.data;
 
 						const date = getDate(created).toUTCString();
-						const title = getTitle();
 
 						return (
 							<div key={index}>
@@ -124,21 +113,23 @@ const ListItemComponent = () => {
 										<img src={thumbnail === 'self' ? defaultThumbnail : thumbnail} alt='alt text here' style={{maxHeight: '80%'}}/>
 									</ThumbnailDiv>
 									<ContentDiv>
-										<TitleDivContainer>
-											<div style={{fontSize: '18px', fontWeight: 'bold'}}>{title}</div>
-											<a style={{fontSize: '12px'}} href={permalink} noopener="true" noreferrer="true" target='_blank'>Visit Thread</a>
-										</TitleDivContainer>
-										<AuthorDivContainer>
-											{`created by: ${author} on: ${date}`}
-										</AuthorDivContainer>
+										<div>
+											<TitleDivContainer>
+												<StyledTitle title={title}>{title}</StyledTitle>
+												<a style={{fontSize: '12px', marginLeft: '24px'}} href={permalink} noopener="true" noreferrer="true" target='_blank'>Visit Thread</a>
+											</TitleDivContainer>
+											<AuthorDivContainer>
+												{`created by: ${author} on: ${date}`}
+											</AuthorDivContainer>
+										</div>
 										<Footer>
 											<Ups>
-												<div style={{fonstSize: '10px', fontWeight: 'bold'}}>up votes </div>
-												<div style={{color: 'green'}}>{ups}</div>
+												<div style={{fontSize: '12px', fontWeight: 'bold'}}>Upvotes</div>
+												<div style={{color: 'green', fontSize: '12px'}}>{ups}</div>
 											</Ups>
 											<div>
 												<div style={{fontWeight: 'bold', fontSize: '12px'}}>Awards</div>
-												<AwardsItemComponent filteredIconUrlArray={filteredIconUrlArray} coinPrice={coinPrice}/>
+												<AwardsItemComponent iconsAndCoinPrice={iconsAndCoinPrice} />
 											</div>
 										</Footer>
 									</ContentDiv>

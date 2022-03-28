@@ -14,18 +14,18 @@ const IconContainer = styled.div`
     max-width: 100%
 `;
 
-const AwardsItemComponent = ({ filteredIconUrlArray, coinPrice }) => {
-	if(filteredIconUrlArray?.length) {
+const AwardsItemComponent = ({ iconsAndCoinPrice }) => {
+	if(iconsAndCoinPrice?.length) {
 		return (
 			<IconContainer>
-				{filteredIconUrlArray.map((url, i )=> {
+				{iconsAndCoinPrice.map((item, i )=> {
 					return (
-						<div key={i}>
+						<div key={i} style={{margin: '0 3px'}}>
 							<div>
-								<img src={url}/>
+								<img src={item.url}/>
 							</div>
 							<div style={{fontSize: '12px'}}>
-								price {coinPrice}
+								{item.coinPrice}
 							</div>
 						</div>
 					);
