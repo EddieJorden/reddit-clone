@@ -4,7 +4,7 @@ const redditSlice = createSlice({
 	name: 'redditSlice',
 	initialState: {
 		redditReturn: [],
-		userSearchTerm: 'ferrari',
+		userSearchTerm: 'politics',
 	},
 	reducers: {
 		updateRedditReturn(state, action) {

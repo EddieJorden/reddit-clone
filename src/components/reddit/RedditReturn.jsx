@@ -10,7 +10,6 @@ const RedditReturn = () => {
 				<Reddit />
 			</div>
 			<div>
-				<div>reddit return: </div>
 				<ListItemComponent />
 			</div>
 		</div>

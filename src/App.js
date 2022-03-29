@@ -5,7 +5,7 @@ import SearchBarReturn from './components/searchbar/SearchBarReturn';
 import RedditReturn from './components/reddit/RedditReturn';
 
 function App() {
-	const greeting = 'hello world';
+	const greeting = 'Reddit Clone';
 
 	return (
 		<div className="App">
