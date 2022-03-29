@@ -116,7 +116,7 @@ const ListItemComponent = () => {
 										<div>
 											<TitleDivContainer>
 												<StyledTitle title={title}>{title}</StyledTitle>
-												<a style={{fontSize: '12px', marginLeft: '24px'}} href={permalink} noopener="true" noreferrer="true" target='_blank'>Visit Thread</a>
+												<a style={{fontSize: '12px', marginLeft: '24px'}} href={`https://www.reddit.com/${permalink}`} noopener="true" noreferrer="true" target='_blank'>Visit Thread</a>
 											</TitleDivContainer>
 											<AuthorDivContainer>
 												{`created by: ${author} on: ${date}`}
