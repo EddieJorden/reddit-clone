@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/reddit-clone/static/css/main.073c9b0a.css",
-    "main.js": "/reddit-clone/static/js/main.9fe81b8d.js",
+    "main.css": "/reddit-clone/static/css/main.c3eee12a.css",
+    "main.js": "/reddit-clone/static/js/main.5c5027b8.js",
     "static/js/787.426886e5.chunk.js": "/reddit-clone/static/js/787.426886e5.chunk.js",
+    "static/media/gt86nurburgring.jpg": "/reddit-clone/static/media/gt86nurburgring.7973da86a1e82d3c0f98.jpg",
     "index.html": "/reddit-clone/index.html",
-    "main.073c9b0a.css.map": "/reddit-clone/static/css/main.073c9b0a.css.map",
-    "main.9fe81b8d.js.map": "/reddit-clone/static/js/main.9fe81b8d.js.map",
+    "main.c3eee12a.css.map": "/reddit-clone/static/css/main.c3eee12a.css.map",
+    "main.5c5027b8.js.map": "/reddit-clone/static/js/main.5c5027b8.js.map",
     "787.426886e5.chunk.js.map": "/reddit-clone/static/js/787.426886e5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.9fe81b8d.js"
+    "static/css/main.c3eee12a.css",
+    "static/js/main.5c5027b8.js"
   ]
 }
