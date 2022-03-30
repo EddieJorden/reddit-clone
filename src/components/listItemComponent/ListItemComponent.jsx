@@ -10,8 +10,6 @@ const TileDivContainer = styled.div`
     background-color: white;
     margin: 10px 0px;
 	display: flex;
-	max-width: 1000px;
-	min-width: 1000px;
 	padding: 10px;
 `;
 
@@ -30,16 +28,11 @@ const ContentDiv = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	max-width: 840px;
-	min-width: 840px
 `;
 
 const TitleDivContainer = styled.div`
 	display: flex;
-
 	justify-content: space-between;
-	max-width: 90%;
-	min-width: 90%;
 	font-size: 10px;
 `;
 
@@ -48,7 +41,6 @@ const AuthorDivContainer = styled.div`
 	display: flex;
 	justify-content: row-start;
 	font-size: 12px;
-	max-width: 90%;
 `;
 
 const Footer = styled.div`
@@ -56,8 +48,6 @@ const Footer = styled.div`
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-around;
-	max-width: 90%;
-	min-width: 90%;
 `;
 
 const Ups = styled.div`
@@ -73,6 +63,7 @@ const StyledTitle = styled.div`
 	font-size: 18px;
 	font-weight: bold;
 	width: 600px;
+	text-align: left;
 `;
 
 const ListItemComponent = () => {
@@ -116,7 +107,7 @@ const ListItemComponent = () => {
 										<div>
 											<TitleDivContainer>
 												<StyledTitle title={title}>{title}</StyledTitle>
-												<a style={{fontSize: '12px', marginLeft: '24px'}} href={permalink} noopener="true" noreferrer="true" target='_blank'>Visit Thread</a>
+												<a style={{fontSize: '12px', marginLeft: '24px'}} href={`https://www.reddit.com/${permalink}`} noopener="true" noreferrer="true" target='_blank'>Visit Thread</a>
 											</TitleDivContainer>
 											<AuthorDivContainer>
 												{`created by: ${author} on: ${date}`}

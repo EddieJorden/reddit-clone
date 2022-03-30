@@ -11,7 +11,6 @@ const TileTitle = styled.div`
 const IconContainer = styled.div`
     display: flex;
     align-items: flex-end;
-    max-width: 100%
 `;
 
 const AwardsItemComponent = ({ iconsAndCoinPrice }) => {
